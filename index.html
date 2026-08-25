@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="0; url=login.html" />
+  <meta name="description" content="Notice Hub is a simple communication workspace for small organizations." />
+  <title>Notice Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="login-screen" id="login-screen">
+    <div class="login-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-note note-one"><i data-lucide="message-circle"></i></div><div class="art-note note-two"><i data-lucide="paperclip"></i></div><div class="art-note note-three"><i data-lucide="image"></i></div></div>
+    <div class="login-card">
+      <div class="brand-lockup login-brand"><div class="brand-mark"><i data-lucide="radio-tower"></i></div><div><strong>notice<span>hub</span></strong><small>your team, together</small></div></div>
+      <p class="eyebrow">Welcome back</p>
+      <h1>Make sure everyone<br /><span>hears the news.</span></h1>
+      <p class="login-copy">Sign in to your organization's private communication space.</p>
+      <form id="login-form">
+        <label class="field-label">Your name<input id="login-name" type="text" placeholder="e.g. Alex Lee" autocomplete="name" required /></label>
+        <label class="field-label">Access code<input id="access-code" type="password" placeholder="Enter your access code" autocomplete="current-password" required /></label>
+        <button class="send-button login-button" type="submit">Enter Notice Hub <i data-lucide="arrow-right"></i></button>
+      </form>
+      <p class="login-help"><i data-lucide="lock-keyhole"></i> Your access code keeps this space private.</p>
+    </div>
+  </section>
+
+  <div class="app-shell" id="app-shell" hidden>
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="brand-lockup">
+        <div class="brand-mark"><i data-lucide="radio-tower"></i></div>
+        <div>
+          <strong>notice<span>hub</span></strong>
+          <small>your team, together</small>
+        </div>
+      </div>
+
+      <button class="new-message-button" id="open-compose" type="button">
+        <i data-lucide="plus"></i><span>New message</span><kbd>N</kbd>
+      </button>
+
+      <nav class="primary-nav">
+        <p class="nav-label">Workspace</p>
+        <button class="nav-item active" data-view="inbox" type="button"><i data-lucide="inbox"></i><span>Inbox</span><b>3</b></button>
+        <button class="nav-item" data-view="sent" type="button"><i data-lucide="send"></i><span>Sent</span></button>
+        <button class="nav-item" data-view="drafts" type="button"><i data-lucide="file-pen-line"></i><span>Drafts</span><b class="muted-count">2</b></button>
+        <button class="nav-item" data-view="files" type="button"><i data-lucide="folder-open"></i><span>Files</span></button>
+      </nav>
+
+      <div class="sidebar-section">
+        <div class="section-heading"><p class="nav-label">Channels</p><button class="icon-button" aria-label="Add channel" title="Add channel" type="button"><i data-lucide="plus"></i></button></div>
+        <button class="channel-item" type="button"><span class="channel-dot coral"></span>General <small>12</small></button>
+        <button class="channel-item" type="button"><span class="channel-dot yellow"></span>Programs <small>4</small></button>
+        <button class="channel-item" type="button"><span class="channel-dot teal"></span>Board updates</button>
+        <button class="channel-item" type="button"><span class="channel-dot blue"></span>Community</button>
+      </div>
+
+      <div class="sidebar-spacer"></div>
+      <button class="help-link" type="button"><i data-lucide="circle-help"></i><span>Help center</span></button>
+      <div class="profile-card">
+        <div class="avatar avatar-you">AL</div>
+        <div class="profile-copy"><strong id="profile-name">Alex Lee</strong><small>Administrator</small></div>
+        <button class="icon-button" id="sign-out-button" aria-label="Sign out" title="Sign out" type="button"><i data-lucide="log-out"></i></button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Workspace</span><i data-lucide="chevron-right"></i><strong id="view-title">Inbox</strong></div>
+        <div class="topbar-actions">
+          <label class="search-box"><i data-lucide="search"></i><input id="search-input" type="search" placeholder="Search messages and files" /><kbd>/</kbd></label>
+          <button class="icon-button top-action" id="notifications-button" aria-label="Open notice board" title="Open notice board" type="button"><i data-lucide="bell"></i><span class="notification-dot"></span></button>
+          <button class="avatar avatar-you top-avatar" aria-label="Open profile" type="button">AL</button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="page-intro">
+          <div>
+            <p class="eyebrow">Tuesday, August 25, 2026</p>
+            <h1 id="page-heading">Good morning, Alex<span>.</span></h1>
+            <p class="intro-copy">Keep your organization in the loop.</p>
+          </div>
+          <button class="outline-button" id="upload-top" type="button"><i data-lucide="upload"></i>Upload files</button>
+          <input id="file-input" type="file" multiple hidden />
+        </section>
+
+        <section class="quick-stats" aria-label="Workspace overview">
+          <div class="stat-item"><span class="stat-icon coral-bg"><i data-lucide="message-square"></i></span><div><strong>24</strong><small>Unread messages</small></div></div>
+          <div class="stat-item"><span class="stat-icon yellow-bg"><i data-lucide="paperclip"></i></span><div><strong>8</strong><small>Files shared this week</small></div></div>
+          <div class="stat-item"><span class="stat-icon teal-bg"><i data-lucide="users"></i></span><div><strong>38</strong><small>Active members</small></div></div>
+          <div class="stat-aside"><i data-lucide="sparkles"></i><span>Everything is up to date</span></div>
+        </section>
+
+        <section class="workspace-grid">
+          <div class="message-panel panel">
+            <div class="panel-header"><div><h2 id="list-heading">Recent messages</h2><p>Stay close to what your team is sharing.</p></div><button class="icon-button" aria-label="More message options" title="More options" type="button"><i data-lucide="ellipsis"></i></button></div>
+            <div class="filter-row"><button class="filter-button active" data-filter="all" type="button">All <span>12</span></button><button class="filter-button" data-filter="unread" type="button">Unread <span>3</span></button><button class="filter-button" data-filter="mentions" type="button">Mentions <span>2</span></button></div>
+            <div id="message-list" class="message-list"></div>
+            <form class="chat-composer" id="chat-form">
+              <div class="chat-input-wrap"><textarea id="chat-input" rows="1" placeholder="Write a message to everyone..." aria-label="Message everyone"></textarea><button class="chat-attach" id="chat-attach" aria-label="Attach a file" title="Attach a file" type="button"><i data-lucide="paperclip"></i></button></div>
+              <div class="chat-composer-footer"><span><kbd>Enter</kbd> to send · <kbd>Shift + Enter</kbd> for a new line</span><button class="chat-send" aria-label="Send message" title="Send message" type="submit"><i data-lucide="send"></i></button></div>
+            </form>
+          </div>
+
+          <aside class="right-rail">
+            <section class="files-panel panel">
+              <div class="panel-header compact"><div><h2>Recent files</h2><p>Your latest shared resources.</p></div><button class="text-button" id="view-files" type="button">View all</button></div>
+              <div id="file-list" class="file-list"></div>
+              <button class="drop-zone" id="drop-zone" type="button"><span><i data-lucide="upload-cloud"></i></span><strong>Drop files here</strong><small>or click to browse</small></button>
+            </section>
+            <section class="tip-panel">
+              <div class="tip-icon"><i data-lucide="lightbulb"></i></div><div><p class="eyebrow">A small tip</p><strong>Keep updates easy to find</strong><p>Use channels for topics your whole team needs to follow.</p></div><button class="icon-button" aria-label="Dismiss tip" title="Dismiss" type="button"><i data-lucide="x"></i></button>
+            </section>
+          </aside>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <section class="notice-board-screen" id="notice-board" hidden>
+    <div class="notice-board-inner">
+      <button class="back-link" id="close-notice-board" type="button"><i data-lucide="arrow-left"></i> Back to messages</button>
+      <div class="notice-board-heading"><div><p class="eyebrow">Organization notice board</p><h1>Good things worth<br /><span>knowing.</span></h1><p>General information, important dates, and updates from your organization.</p></div><div class="notice-board-stamp"><i data-lucide="pin"></i><span>Always here<br />for the team</span></div></div>
+      <div class="notice-grid">
+        <article class="notice-card featured"><div class="notice-card-top"><span class="notice-tag coral-tag">Important</span><time>Aug 25, 2026</time></div><h2>Welcome to the new Notice Hub</h2><p>We've brought messages, documents, and team updates into one friendly place. Start by saying hello in General.</p><div class="notice-author"><div class="avatar avatar-maya">MR</div><span>Shared by Maya Rodriguez</span></div></article>
+        <article class="notice-card"><div class="notice-card-top"><span class="notice-tag yellow-tag">Coming up</span><time>Aug 28, 2026</time></div><h2>Quarterly all-hands</h2><p>Join us Friday at 10am for a quick look at what we've accomplished and what's next.</p><a href="#" class="notice-action">Add to calendar <i data-lucide="arrow-up-right"></i></a></article>
+        <article class="notice-card"><div class="notice-card-top"><span class="notice-tag teal-tag">Resource</span><time>Aug 22, 2026</time></div><h2>New volunteer guide</h2><p>The latest welcome guide is ready in the Files area. Share it with anyone joining the team.</p><a href="#" class="notice-action">Open resource <i data-lucide="arrow-up-right"></i></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="signed-out-screen" id="signed-out-screen" hidden>
+    <div class="signed-out-card"><div class="signed-out-mark"><i data-lucide="check"></i></div><p class="eyebrow">You're all set</p><h1>You've been signed out.</h1><p>Your Notice Hub session has ended. Come back when you're ready.</p><button class="send-button" id="return-login" type="button">Sign in again <i data-lucide="arrow-right"></i></button></div>
+  </section>
+
+  <div class="modal-backdrop" id="compose-modal" hidden>
+    <section class="compose-modal" role="dialog" aria-modal="true" aria-labelledby="compose-title">
+      <div class="modal-header"><div><p class="eyebrow">New communication</p><h2 id="compose-title">Share an update</h2></div><button class="icon-button" id="close-compose" aria-label="Close compose dialog" title="Close" type="button"><i data-lucide="x"></i></button></div>
+      <label class="field-label">To <select id="recipient"><option>Everyone in Notice Hub</option><option>Programs channel</option><option>Board updates channel</option><option>Community channel</option></select></label>
+      <label class="field-label">Message <textarea id="message-text" rows="5" placeholder="What would you like your team to know?"></textarea></label>
+      <div class="compose-toolbar"><button class="toolbar-button" id="attach-button" type="button"><i data-lucide="paperclip"></i>Attach files</button><span id="attachment-name">No files attached</span></div>
+      <div class="modal-footer"><button class="cancel-button" id="cancel-compose" type="button">Cancel</button><button class="send-button" id="send-message" type="button"><i data-lucide="send"></i>Send message</button></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="app.js"></script>
+</body>
+</html>
